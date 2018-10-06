@@ -1,0 +1,18 @@
+
+## Input files for allele counting ------------
+
+# Path to cellranger bam file 
+bam10X: /cellassign/clonealign-analysis/data/SA501/raw/SA501X2B_10x_bam/possorted_genome_bam.bam
+
+# Path to heterozygous snp TSV with columns
+# (i) chromosome (ii) position (iii) reference (iv) alt
+snps: /cellassign/clonealign-analysis/analysis/alleleic-imbalance/build-snv-matrix/prep-data/snps.tsv
+
+# List of cell barcodes for which to count alleles
+barcodes: /cellassign/clonealign-analysis/analysis/alleleic-imbalance/build-snv-matrix/prep-data/barcodes.csv
+
+# ID: name of experiment or sample
+id: SA501
+
+# Allele count dir
+allelecount_dir: /cellassign/clonealign-analysis/data/SA501/alleleic-imbalance/allelecount_output
