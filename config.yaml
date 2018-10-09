@@ -14,5 +14,21 @@ barcodes: /cellassign/clonealign-analysis/analysis/alleleic-imbalance/build-snv-
 # ID: name of experiment or sample
 id: SA501
 
-# Allele count dir
+# Allele count dir to which to write intermediate files
 allelecount_dir: /cellassign/clonealign-analysis/data/SA501/alleleic-imbalance/allelecount_output
+
+## Input files for copy number allele construction ----
+
+# CSV file describing genomic coordinates and copy number in each clone, with columns
+# (i) chr (ii) start (iii) end (iv) copy_number (v) clone
+input_clone_cnv: /cellassign/clonealign-analysis/analysis/alleleic-imbalance/build-snv-matrix/SA501-clone-cnv.csv
+
+## Output files
+
+# Allele by clone matrix of copy numbers
+cnv_clone_mat: /cellassign/clonealign-analysis/data/SA501/allelic-imbalance/position-by-clone-mat.Rds
+cov: /cellassign/clonealign-analysis/data/SA501/allelic-imbalance/scrnaseq-cov-counts.Rds
+ref: /cellassign/clonealign-analysis/data/SA501/allelic-imbalance/scrnaseq-ref-counts.Rds
+
+
+

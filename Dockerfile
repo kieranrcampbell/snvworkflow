@@ -26,3 +26,8 @@ RUN conda install -c anaconda pandas && \
     conda install -c anaconda scipy && \
     conda install -c anaconda numpy
     
+# Install R packages required
+RUN Rscript -e "install.packages('devtools', dependencies=TRUE)" && \
+    Rscript -e "install.packages('tidyverse', dependencies=TRUE)" && \
+    Rscript -e "devtools::install_github('jeremystan/aargh')"
+  

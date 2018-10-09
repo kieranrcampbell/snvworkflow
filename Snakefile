@@ -6,7 +6,9 @@ ac_files = expand(config['allelecount_dir'] + "/" + config['id'] + "{file}",file
 
 rule all:
     input:
-        ac_files
+        config['cnv_clone_mat'],
+        config['cov'],
+        config['ref']
 
 rule run_allelecount:
     params:
@@ -22,3 +24,22 @@ rule run_allelecount:
          "python scripts/scAlleleCount.py -v --snps {params.snps} --barcodes {params.barcodes} --output-prefix {params.output} {params.bam10X}"
         
 
+rule snvworkflow:
+    input:
+        clone_cnv = config['input_clone_cnv'],
+        acf = ac_files
+    output:
+        cnv_clone_mat = config['cnv_clone_mat'],
+        cov = config['cov'],
+        ref = config['ref']
+    shell:
+        "Rscript scripts/snvworkflow.R \
+        --input_clone_cnv {input.clone_cnv} \
+        --input_cov {ac_files[0]} \
+        --input_ref {ac_files[1]} \
+        --input_alt {ac_files[2]} \
+        --input_barcode_index {ac_files[3]} \
+        --input_region_index {ac_files[4]} \
+        --output_cnv_clone {output.cnv_clone_mat} \
+        --output_cov {output.cov} \
+        --output_ref {output.ref}"
