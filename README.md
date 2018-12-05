@@ -1,5 +1,8 @@
 # snvworkflow
 
+[![DOI](https://zenodo.org/badge/151792411.svg)](https://zenodo.org/badge/latestdoi/151792411)
+
+
 A pipeline to find allelic ratios in regions of clone-specific LOH in 10X scRNA-seq data. This uses a modified version of the [scAlleleCount](https://github.com/barkasn/scAlleleCount) script.
 
 # Usage
